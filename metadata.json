@@ -10,16 +10,15 @@
         "This Docker container contains  a plug-and-play tool to perform super-resolution on satellite imagery.",
         "It uses Deep Learning to provide a better performing alternative to classical pansharpening (more details in [1]).\n",
 
-        "Right now we are supporting super-resolution for the following satellites:\n",
-
-        "* [Sentinel 2](https://sentinel.esa.int/web/sentinel/missions/sentinel-2)\n",
-        "* [Landsat 8](https://landsat.gsfc.nasa.gov/landsat-8/)\n",
-        "* [VIIRS](https://ncc.nesdis.noaa.gov/VIIRS/)\n",
+        "Right now we are supporting super-resolution for the following satellites:",
+        "* [Sentinel 2](https://sentinel.esa.int/web/sentinel/missions/sentinel-2)",
+        "* [Landsat 8](https://landsat.gsfc.nasa.gov/landsat-8/)",
+        "* [VIIRS](https://ncc.nesdis.noaa.gov/VIIRS/)",
         "* [MODIS](https://terra.nasa.gov/about/terra-instruments/modis)\n",
 
-        "More information on the satellites and processing levels that are supported can be found [here](https://github.com/deephdc/satsr//reports/additional_notes.md)",
-        "along with some [demo images](https://github.com/deephdc/satsr/reports/figures) of the super-resolutions performed in non-training data.\n",
-        "If you want to perform super-resolution on another satellite, go to the [training section](https://github.com/deephdc/satsr/blob/master/README.md#train-other-satellites)",
+        "More information on the satellites and processing levels that are supported can be found [here](https://github.com/deephdc/satsr/blob/master/reports/additional_notes.md)",
+        "along with some [demo images](https://github.com/deephdc/satsr/tree/master/reports/figures) of the super-resolutions performed in non-training data.\n",
+        "If you want to perform super-resolution on another satellite, go to the [training section](https://github.com/deephdc/satsr#train-other-satellites)",
         "to see how you can easily add support for additional satellites. We are happy to accept PRs!\n",
 
         "<img class='fit', src='https://raw.githubusercontent.com/deephdc/DEEP-OC-satsr/master/images/satsr.png'/>\n",
