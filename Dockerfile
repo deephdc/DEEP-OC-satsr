@@ -99,4 +99,4 @@ EXPOSE 5000
 EXPOSE 6006
 
 # Account for OpenWisk functionality (deepaas >=0.3.0)
-CMD ["sh", "-c", "deepaas-run --openwhisk-detect --listen-ip 0.0.0.0"]
+CMD ["deepaas-run", "--openwhisk-detect", "--listen-ip", "0.0.0.0", "--listen-port", "5000"]
