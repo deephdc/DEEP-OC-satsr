@@ -65,18 +65,10 @@ RUN pip install --no-cache-dir flaat && \
 # Disable FLAAT authentication by default
 ENV DISABLE_AUTHENTICATION_AND_ASSUME_AUTHENTICATED_USER yes
 
-# For the time being we will use the test_args branch from DEEPaaS until DEEPaaS 1.0 is released
-RUN git clone -b test-args https://github.com/indigo-dc/deepaas && \
-    cd  deepaas && \
-    pip install --no-cache-dir -e . && \
-    rm -rf /root/.cache/pip/* && \
-    rm -rf /tmp/* && \
-    cd ..
-
 # Install DEEPaaS from PyPi:
-# RUN pip install --no-cache-dir deepaas && \
-#    rm -rf /root/.cache/pip/* && \
-#    rm -rf /tmp/*
+RUN pip install --no-cache-dir deepaas && \
+    rm -rf /root/.cache/pip/* && \
+    rm -rf /tmp/*
 
 # Install spatial packages
 RUN add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable && \
