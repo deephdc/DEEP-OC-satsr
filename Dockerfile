@@ -8,8 +8,11 @@ ARG tag=1.12.0-py3
 FROM tensorflow/tensorflow:${tag}
 
 LABEL maintainer='Ignacio Heredia'
-LABEL version='0.0.1'
+LABEL version='0.1'
 # A project to perform super-resolution on satellite imagery
+
+# python version
+ARG pyVer=python3
 
 # What user branch to clone (!)
 ARG branch=master
@@ -21,14 +24,14 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
          git \
          curl \
          wget \
-         python3-setuptools \
-         python3-pip \
-         python3-wheel && \ 
+         $pyVer-setuptools \
+         $pyVer-pip \
+         $pyVer-wheel && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /root/.cache/pip/* && \
     rm -rf /tmp/* && \
-    if [ "python3" = "python3" ] ; then \
+    if [ "$pyVer" = "python3" ] ; then \
        if [ ! -e /usr/bin/pip ]; then \
           ln -s /usr/bin/pip3 /usr/bin/pip; \
        fi; \
@@ -38,7 +41,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     fi && \
     python --version && \
     pip --version
-
 
 # Set LANG environment
 ENV LANG C.UTF-8
@@ -71,7 +73,7 @@ RUN pip install --no-cache-dir deepaas && \
     rm -rf /tmp/*
 
 # Install spatial packages
-RUN add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable && \
+RUN add-apt-repository -y ppa:ubuntugis/ppa && \
 	apt update && \
 	apt install -y gdal-bin python-gdal python3-gdal
 
@@ -83,12 +85,11 @@ RUN git clone -b $branch https://github.com/deephdc/satsr && \
     rm -rf /tmp/* && \
     cd ..
 
-
 # Open DEEPaaS port
 EXPOSE 5000
 
 # Open Monitoring port
 EXPOSE 6006
 
-# Account for OpenWisk functionality (deepaas >=0.3.0)
+# Account for OpenWisk functionality (deepaas >=0.4.0) + proper docker stop
 CMD ["deepaas-run", "--openwhisk-detect", "--listen-ip", "0.0.0.0", "--listen-port", "5000"]
