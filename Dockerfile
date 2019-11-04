@@ -75,7 +75,7 @@ RUN pip install --no-cache-dir deepaas && \
 # Install spatial packages
 RUN add-apt-repository -y ppa:ubuntugis/ppa && \
 	apt update && \
-	apt install -y gdal-bin python-gdal python3-gdal
+	apt install -y gdal-bin python3-gdal
 
 # Install user app:
 RUN git clone -b $branch https://github.com/deephdc/satsr && \

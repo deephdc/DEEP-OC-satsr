@@ -12,7 +12,7 @@
 
         "**Minimum requirements** Working with satellite imagery is a memory intensive task, so an absolute minimum is",
         "16 GB of RAM memory. But if you want to work with full images (not small patches) you will probably need in the",
-        "order of 50 GB.\n",
+        "order of 50 GB. If memory requirements are not met, weird Tensorflow shape errors can appear.\n",
 
         "The PREDICT method expects a compressed file (zip or tar) containing a complete tile of the satellite. These",
         "tiles are different for each satellite type and can be downloaded in the respective official satellite's",
@@ -21,10 +21,10 @@
         "The output is a GeoTiff file with the super-resolved region.\n",
 
         "Right now we are supporting super-resolution for the following satellites:\n",
-        "* [Sentinel 2](https://sentinel.esa.int/web/sentinel/missions/sentinel-2)\n",
-        "* [Landsat 8](https://landsat.gsfc.nasa.gov/landsat-8/)\n",
-        "* [VIIRS](https://ncc.nesdis.noaa.gov/VIIRS/)\n",
-        "* [MODIS](https://terra.nasa.gov/about/terra-instruments/modis)\n",
+        "[Sentinel 2](https://sentinel.esa.int/web/sentinel/missions/sentinel-2)\n",
+        "[Landsat 8](https://landsat.gsfc.nasa.gov/landsat-8/)\n",
+        "[VIIRS](https://ncc.nesdis.noaa.gov/VIIRS/)\n",
+        "[MODIS](https://terra.nasa.gov/about/terra-instruments/modis)\n",
 
         "More information on the satellites and processing levels that are supported can be found [here](https://github.com/deephdc/satsr/blob/master/reports/additional_notes.md)",
         "along with some [demo images](https://github.com/deephdc/satsr/tree/master/reports/figures) of the super-resolutions performed in non-training data.\n",
