@@ -14,6 +14,7 @@ pipeline {
     }
 
     stages {
+
         stage('Validate metadata') {
             steps {
                 checkout scm
