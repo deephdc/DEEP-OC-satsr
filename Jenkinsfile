@@ -9,8 +9,8 @@ pipeline {
 
     environment {
         dockerhub_repo = "deephdc/deep-oc-satsr"
-        base_cpu_tag = "1.12.0-py3"
-        base_gpu_tag = "1.12.0-py3"
+        base_cpu_tag = "1.14.0-py3"
+        base_gpu_tag = "1.14.0-py3"
     }
 
     stages {
