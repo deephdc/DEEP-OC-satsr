@@ -61,7 +61,7 @@ RUN pip install --no-cache-dir flaat && \
 ENV DISABLE_AUTHENTICATION_AND_ASSUME_AUTHENTICATED_USER yes
 
 # Install DEEPaaS from PyPi:
-RUN pip install --no-cache-dir deepaas && \
+RUN pip install --no-cache-dir "deepaas<1.0" && \
     rm -rf /root/.cache/pip/* && \
     rm -rf /tmp/*
 
