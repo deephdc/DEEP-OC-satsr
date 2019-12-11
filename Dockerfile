@@ -77,8 +77,7 @@ RUN if [ "$jlab" = true ]; then \
     else echo "[INFO] Skip JupyterLab installation!"; fi
 
 # Install spatial packages
-RUN add-apt-repository -y ppa:ubuntugis/ppa && \
-	apt update && \
+RUN apt update && \
 	apt install -y gdal-bin python3-gdal
 
 # Install user app:
