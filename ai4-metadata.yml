@@ -1,0 +1,53 @@
+metadata_version: 2.0.0
+title: Upscale multispectral satellites images
+summary: Upscale (superresolve) low resolution bands to high resolution in multispectral satellite imagery.
+description: |-
+  With the latest missions launched by the European Space Agency (ESA) and National Aeronautics and Space Administration (NASA) equipped with the latest  technologies in multi-spectral sensors, we face an unprecedented amount of data with spatial and temporal resolutions never reached before. Exploring the potential  of this data with state-of-the-art AI techniques like Deep Learning, could potentially change the way we think about and protect our planet's resources.
+
+  This Docker container contains a plug-and-play tool to perform super-resolution on satellite imagery. It uses Deep Learning to provide a better performing alternative to classical pansharpening (more details in [1]).
+
+  **Minimum requirements**
+   
+  Working with satellite imagery is a memory intensive task, so an absolute minimum is 16 GB of RAM memory. But if you want to work with full images (not small patches) you will probably need in the order of 50 GB. If memory requirements are not met, weird Tensorflow shape errors can appear.
+
+  The PREDICT method expects a compressed file (zip or tar) containing a complete tile of the satellite. These tiles are different for each satellite type and can be downloaded in the respective official satellite's repositories. 
+  We provide nevertheless [some samples](https://github.com/deephdc/satsr/blob/master/reports/additional_notes.md) for each satellite so that the user can test the module. The output is a GeoTiff file with the super-resolved region.
+
+  Right now we are supporting super-resolution for the following satellites:
+
+  * [Sentinel 2](https://sentinel.esa.int/web/sentinel/missions/sentinel-2)
+  * [Landsat 8](https://landsat.gsfc.nasa.gov/landsat-8/)
+  * [VIIRS](https://ncc.nesdis.noaa.gov/VIIRS/)
+  * [MODIS](https://terra.nasa.gov/about/terra-instruments/modis)
+
+  More information on the satellites and processing levels that are supported can be found [here](https://github.com/deephdc/satsr/blob/master/reports/additional_notes.md) along with some [demo images](https://github.com/deephdc/satsr/tree/master/reports/figures) of the super-resolutions performed in non-training data.
+
+  If you want to perform super-resolution on another satellite, go to the [training section](https://github.com/deephdc/satsr#train-other-satellites)  to see how you can easily add support for additional satellites. 
+  We are happy to accept PRs!
+
+  <img class='fit', src='https://raw.githubusercontent.com/deephdc/DEEP-OC-satsr/master/images/satsr.png'/>
+
+  **References**
+
+  1. Lanaras, C., Bioucas-Dias, J., Galliani, S., Baltsavias, E., & Schindler, K. (2018). [Super-resolution of Sentinel-2 images: Learning a globally applicable deep neural network](https://arxiv.org/abs/1803.04271). ISPRS Journal of Photogrammetry and Remote Sensing, 146, 305-319.
+  
+dates:
+  created: '2019-01-01'
+  updated: '2024-10-09'
+links:
+  source_code: https://github.com/deephdc/satsr
+  docker_image: deephdc/deep-oc-satsr
+  cite_url: https://doi.org/10.1016/j.isprsjprs.2018.09.018
+tags:
+  - deep learning
+  - remote sensing
+tasks:
+  - Computer Vision
+categories:
+  - AI4 trainable
+  - AI4 inference
+  - AI4 pre trained
+libraries:
+  - TensorFlow
+sata-type:
+  - Image 
